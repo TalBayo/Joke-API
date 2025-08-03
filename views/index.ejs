@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Lisper</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Titan+One&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="styles/main.css">
+
+</head>
+
+<body>
+  <h1>Can you take a joke?🤪</h1>
+
+  <div class="content-wrapper">
+    <div class="card">
+      <p id="insult">
+        <%= insult %>
+      </p>
+    </div>
+    <div class="insult-button-container">
+      <button id="newInsultBtn" class="insult-button">New Insult</button>
+    </div>
+  </div>
+  <script>
+    
+    document.getElementById("newInsultBtn").addEventListener("click", async () => {
+      try {
+        const response = await fetch("/insult");
+        const data = await response.json();
+        document.getElementById("insult").textContent = data.insult;
+      } catch (error) {
+        console.error("Failed to fetch insult:", error);
+        document.getElementById("insult").textContent = "Oops! No joke for now.";
+      }
+    });
+  </script>
+  <%- include("partials/footer.ejs") %>
+</body>
+
+</html>
