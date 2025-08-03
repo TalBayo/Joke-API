@@ -9,5 +9,5 @@ A fun web app that serves you a new insult every time you click a button. Built 
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/lisper.git
+git clone https://github.com/TalBayo/Joke-API.git
 cd lisper
